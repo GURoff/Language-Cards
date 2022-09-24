@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import './styles/App.css';
 
-function App() {
+function App_Alexandr() {
   const [word, setWord] = useState('');
 
   const changeWord = () => {
@@ -19,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default App_Alexandr;

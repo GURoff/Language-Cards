@@ -1,7 +1,7 @@
 import React from "react";
 import './styles/App.css';
 
-function App() {
+function App_Oleg() {
   
   return (
     <div className="App">
@@ -10,4 +10,4 @@ function App() {
   );
 }
 
-export default App;
+export default App_Oleg;

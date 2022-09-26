@@ -16,3 +16,7 @@
 .select {
     padding: 100px;
 }
+
+.textarea {
+    display: flex;
+}

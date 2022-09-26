@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './styles/App.css';
-import Axios from 'axios';
+
 const axios = require('axios').default;
 
 function AppAlexandr() {
@@ -15,8 +15,8 @@ function AppAlexandr() {
 
    {/* translator from https://www.youtube.com/watch?v=0vQkTya1Qb4*/}
     const [options, setOptions] = useState([]);
-    const [from, setFrom] = useState('eng');
-    const [to, setTo] = useState('eng');
+    const [from, setFrom] = useState('en');
+    const [to, setTo] = useState('en');
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
 
@@ -26,11 +26,10 @@ function AppAlexandr() {
       params.append('source', from);
       params.append('target', to);
       params.append('api_key', 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx');
-
       axios.post('https://libretranslate.de/translate', params, {
         headers: {
           'accept': 'application/json',
-          'Content-type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
       }).then(res => {
         // console.log(res.data);
@@ -46,7 +45,7 @@ function AppAlexandr() {
         console.log(res.data);
         setOptions(res.data);
       })
-    }, [])  
+    }, [])
 
   return (
     <div className="App">
@@ -73,21 +72,22 @@ function AppAlexandr() {
         <div>
           <textarea 
             cols = '30' 
-            rows = '1' 
+            rows = '1'
+            placeholder = 'enter your word'
             onInput = {(e) => setInput(e.target.value)}>
           </textarea>
         </div>
         <div>
           <textarea 
             cols = '30' 
-            rows = '1' 
-            value = {output}>
+            rows = '1'
+            placeholder = 'here is your translate'
+            defaultValue = {output}>
           </textarea>
         </div>
         <div>
           <button onClick = {e => translate()}>Translate</button>
         </div>
-    
     </div>
   );
 }

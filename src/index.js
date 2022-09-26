@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App_Alexandr from './App_Alexandr';
+import AppAlexandr from './AppAlexandr';
 
  const root = ReactDOM.createRoot(document.getElementById('root'));
  root.render(
-  <App_Alexandr/>
+  <AppAlexandr/>
 
  );

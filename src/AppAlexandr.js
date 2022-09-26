@@ -1,18 +1,10 @@
 import React, {useState, useEffect} from "react";
 import './styles/App.css';
-
+import MyButton from './components/UI/Buttons/MyButton.jsx';
 const axios = require('axios').default;
 
-function AppAlexandr() {
-  const [word, setWord] = useState('');
-  let newWord = ('');
-  
-  const addWord = (e) => {
-    e.preventDefault();
-    newWord = {setWord};
-    console.log(newWord);
-  }
 
+function AppAlexandr() {
    {/* translator from https://www.youtube.com/watch?v=0vQkTya1Qb4*/}
     const [options, setOptions] = useState([]);
     const [from, setFrom] = useState('en');
@@ -47,17 +39,14 @@ function AppAlexandr() {
       })
     }, [])
 
+    if (/[0-9]/.test(input) || input.includes([' ']) ) {
+     // alert('Error');
+     window.alert('Error');
+    }
+
   return (
     <div className="App">
       <h1 style={{textAlign: "center"}}>Homepage</h1>
-      <input
-        type = 'text'
-        value = {word}
-        placeholder = 'add your word'
-        onChange = {(e) => setWord(e.target.value)}
-      />
-      <button onClick={addWord}>Ok</button>
-      <p>You word is <b>{word}</b></p>
     {/* translator */}
         <div>
           From ({from}):
@@ -86,7 +75,7 @@ function AppAlexandr() {
           </textarea>
         </div>
         <div>
-          <button onClick = {e => translate()}>Translate</button>
+          <MyButton onClick = {e => translate()}>Translate</MyButton>
         </div>
     </div>
   );

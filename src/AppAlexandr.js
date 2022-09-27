@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './styles/App.css';
+import TextArea from './styles/TextArea.css';
 import MyButton from './components/UI/Buttons/MyButton.jsx';
 const axios = require('axios').default;
 
@@ -39,13 +40,14 @@ function AppAlexandr() {
       })
     }, [])
 
+    
     if (/[0-9]/.test(input) || input.includes([' ']) ) {
      // alert('Error');
-     window.alert('Error');
+     //window.alert('Error');
     }
 
   return (
-    <div className="App">
+    <div className="AppAlexandr">
       <h1 style={{textAlign: "center"}}>Homepage</h1>
     {/* translator */}
         <div>
@@ -54,12 +56,13 @@ function AppAlexandr() {
               {options.map(opt => <option key = {opt.code} value = {opt.code}>{opt.name}</option>)}
             </select>
           To ({to}):
-          <select onChange = {e => setTo(e.target.value)}>
+            <select onChange = {e => setTo(e.target.value)}>
               {options.map(opt => <option key = {opt.code} value = {opt.code}>{opt.name}</option>)}
             </select>
         </div>
         <div>
-          <textarea 
+          <textarea
+            className="textarea"
             cols = '30' 
             rows = '1'
             placeholder = 'enter your word'
@@ -67,12 +70,13 @@ function AppAlexandr() {
           </textarea>
         </div>
         <div>
-          <textarea 
+          <textarea
+            className="textarea"
             cols = '30' 
             rows = '1'
             placeholder = 'here is your translate'
-            defaultValue = {output}>
-          </textarea>
+            defaultValue = {output}
+          />
         </div>
         <div>
           <MyButton onClick = {e => translate()}>Translate</MyButton>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MyButton from '../components/UI/Buttons/MyButton';
 import MyTextArea from '../components/UI/TextAreas/MyTextArea.jsx';
-
+import classes from './Translator.module.css';
 
 const axios = require('axios').default;
 
@@ -48,13 +48,13 @@ const TranslatorItem = (props) => {
   return (
         <div>
               {/* translator */}
-          <div>
+          <div className = {classes.translatorStyles}>
             From ({from}):
-              <select onChange = {e => setFrom(e.target.value)}>
+              <select className = {classes.translatorSelect} onChange = {e => setFrom(e.target.value)}>
                 {options.map(opt => <option key = {opt.code} value = {opt.code}>{opt.name}</option>)}
               </select>
             To ({to}):
-              <select onChange = {e => setTo(e.target.value)}>
+              <select className = {classes.translatorSelect} onChange = {e => setTo(e.target.value)}>
                 {options.map(opt => <option key = {opt.code} value = {opt.code}>{opt.name}</option>)}
               </select>
           </div>

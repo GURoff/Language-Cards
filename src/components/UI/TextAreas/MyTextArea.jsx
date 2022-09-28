@@ -1,14 +1,12 @@
 import React from 'react';
 import classes from './MyTextArea.module.css';
 
-const MyTextArea = ({children, ...props}) => {
+const MyTextArea = React.forwardRef((props, ref) => {
     return (
         <div>
-          <textarea {...props} className = {classes.MyTextAreaStyles}>
-            {children}
-          </textarea>
+          <textarea ref = {ref} className = {classes.MyTextAreaStyles} {...props}/>
         </div>
     );
-};
+});
 
 export default MyTextArea;

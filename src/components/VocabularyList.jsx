@@ -1,7 +1,7 @@
 import React from 'react';
 import VocabularyItem from './VocabularyItem';
 
-const VocabularyList = ({words, input}) => {
+const VocabularyList = ({words}) => {
     return (
         <div>
             <h1 style={{ textAlign: 'center', color: 'teal' }}>

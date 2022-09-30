@@ -73,7 +73,8 @@ const TranslatorItem = (props) => {
           {options.map(opt => <option key={opt.code} value={opt.code}>{opt.name}</option>)}
         </select>
       </div>
-      <div>
+      <form>
+      {/* <div> */}
         <MyTextArea
           cols='30'
           rows='1'
@@ -90,8 +91,8 @@ const TranslatorItem = (props) => {
           }
           }
         />
-      </div>
-      <div>
+      {/* </div> */}
+      {/* <div> */}
         <MyTextArea
           cols='30'
           rows='1'
@@ -100,7 +101,8 @@ const TranslatorItem = (props) => {
           defaultValue={output}
           onChange = {e => setInput(e.target.value)}
         />
-      </div>
+      {/* </div> */}
+      </form>
       <div>
         <MyButton onClick={e => translate()}>Translate</MyButton>
         <MyButton onClick={addNewWord}>Add to vocabulary</MyButton>

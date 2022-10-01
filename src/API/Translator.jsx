@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import MyButton from '../components/UI/Buttons/MyButton';
 import MyTextArea from '../components/UI/TextAreas/MyTextArea.jsx';
 import VocabularyList from '../components/VocabularyList';
@@ -13,6 +13,7 @@ const TranslatorItem = (props) => {
   const [to, setTo] = useState('en');
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
+  const [selectedSort, setSelectedSort] = useState('');
 
   const translate = () => {
     const params = new URLSearchParams();
@@ -38,7 +39,6 @@ const TranslatorItem = (props) => {
             'accept': 'application/json'
           }
         }).then(res => {
-          //console.log(res.data);
           setOptions(res.data);
         })
   }, [])
@@ -60,6 +60,15 @@ const TranslatorItem = (props) => {
     setOutput('');
   }
 
+  const removeWord = (word) => {
+    setWords(words.filter(p => p.id !== word.id))
+  }
+
+  const sortVocabularyWords = (sort) => { 
+    setSelectedSort(sort);
+    setWords([...words].sort((a, b) => a[sort].localeCompare(b[sort])))
+  }
+
   return (
     <div>
       {/* translator */}
@@ -74,15 +83,11 @@ const TranslatorItem = (props) => {
         </select>
       </div>
       <form>
-      {/* <div> */}
         <MyTextArea
-          cols='30'
-          rows='1'
           placeholder='enter your word'
-          // ref = {wordInRef}
-         value={input}
+          value={input}
           onInput={(e) => {
-            if (/[0-9]/.test(e.target.value) || e.target.value.includes([' '])) {
+            if (/[0-9]/.test(e.target.value)) {
               alert('You cannot enter numbers or space in this field. Click OK and try again')
               setInput('');
             } else {
@@ -91,23 +96,24 @@ const TranslatorItem = (props) => {
           }
           }
         />
-      {/* </div> */}
-      {/* <div> */}
         <MyTextArea
-          cols='30'
-          rows='1'
+          disabled
           placeholder='here is your translate'
-          // ref = {wordOutRef}
           defaultValue={output}
-          onChange = {e => setInput(e.target.value)}
+          onChange={e => setInput(e.target.value)}
         />
-      {/* </div> */}
       </form>
       <div>
         <MyButton onClick={e => translate()}>Translate</MyButton>
         <MyButton onClick={addNewWord}>Add to vocabulary</MyButton>
       </div>
-      <VocabularyList words={words} />
+
+      {words.length
+        ? <VocabularyList words={words} remove={removeWord} sortVocabularyWords = {sortVocabularyWords} selectedSort={selectedSort} setSelectedSort={setSelectedSort}/>
+        : <h1 style={{ textAlign: 'center', color: 'red' }}>
+          Words not found. <p style={{ color: 'teal' }}>Add the word to your own dictionary.</p></h1>
+      }
+
     </div>
   );
 };

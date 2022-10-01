@@ -9,12 +9,14 @@ const VocabularyItem = (props) => {
             <div className={classes.post}>
                 <div>
                     <div className={classes.postWord}>
-                        {props.number} {props.word.input} -
+                        {props.number}. {props.word.input} -
                         <div className={classes.postTranslatedWord}>{props.word.output}</div>
                     </div>
                 </div>
                 <div>
-                    <button>Remove</button>
+                    <button onClick={() => props.remove(props.word)}>
+                        Remove
+                    </button>
                 </div>
             </div>
         </div>

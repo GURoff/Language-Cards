@@ -1,0 +1,9 @@
+.sortDictionary {
+    font-size: 15px;
+    color: teal;
+    padding: 10px;
+    border-radius: 16px;
+    min-width: 25px;
+    justify-content: center;
+    align-items: center;
+}

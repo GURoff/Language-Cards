@@ -4,7 +4,13 @@ import classes from './MyTextArea.module.css';
 const MyTextArea = React.forwardRef((props, ref) => {
     return (
         <div>
-          <textarea ref = {ref} className = {classes.MyTextAreaStyles} {...props}/>
+          <textarea 
+          className = {classes.MyTextAreaStyles}
+          {...props}
+          ref = {ref}
+          cols = '30'
+          rows='1'
+          />
         </div>
     );
 });

@@ -10,7 +10,9 @@ const VocabularyItem = (props) => {
                 <div>
                     <div className={classes.postWord}>
                         {props.number}. {props.word.input} -
-                        <div className={classes.postTranslatedWord}>{props.word.output}</div>
+                        <div className={classes.postTranslatedWord}>
+                            {props.word.output}
+                        </div>
                     </div>
                 </div>
                 <div>

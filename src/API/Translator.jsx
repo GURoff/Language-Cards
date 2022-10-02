@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import MyButton from '../components/UI/Buttons/MyButton';
 import MyInput from '../components/UI/Input/MyInput';
-import MySelect from '../components/UI/Select/MySelect';
 import VocabularyList from '../components/VocabularyList';
+import WordFilter from '../components/WordFilter';
 import classes from './Translator.module.css';
 
 const axios = require('axios').default;
@@ -14,8 +14,7 @@ const TranslatorItem = (props) => {
   const [to, setTo] = useState('en');
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
-  const [selectedSort, setSelectedSort] = useState('');
-  const [searchQuery, setSearchQuery] = useState('')
+  const [filter, setFilter] = useState({ sort: '', query: '' });
 
   //Connect with translator---------------------------------------------------------------------
   const translate = () => {
@@ -54,16 +53,16 @@ const TranslatorItem = (props) => {
 
   //Sorted words in vocabulary for future search
   const sortedWords = useMemo(() => {
-    if (selectedSort) {
-      return [...words].sort((a, b) => a[selectedSort].localeCompare(b[selectedSort]))
+    if (filter.sort) {
+      return [...words].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
     }
     return words;
-  }, [selectedSort, words]);
+  }, [filter.sort, words]);
 
   //Sorted and searched words from vocabulary
   const sortedAndSearchedWords = useMemo(() => {
-    return sortedWords.filter(word => word.input.toLowerCase().includes(searchQuery))
-  }, [searchQuery, sortedWords]);
+    return sortedWords.filter(word => word.input.toLowerCase().includes(filter.query)) //is neccecary to add search for output too
+  }, [filter.query, sortedWords]);
 
   //Add new word to our vocabulary from API translator
   const addNewWord = () => {
@@ -79,10 +78,6 @@ const TranslatorItem = (props) => {
   //Function for removing word from our vocabulary 
   const removeWord = (word) => {
     setWords(words.filter(p => p.id !== word.id))
-  }
-  //Sorting words in the vocabulary by base language and by translated language 
-  const sortVocabularyWords = (sort) => {
-    setSelectedSort(sort);
   }
 
   return (
@@ -124,33 +119,15 @@ const TranslatorItem = (props) => {
         <MyButton onClick={e => translate()}>Translate</MyButton>
         <MyButton onClick={addNewWord}>Add to vocabulary</MyButton>
       </div>
-      <div>
-        <hr style={{ margin: '15px 0' }} />
-        <h1 style={{ textAlign: 'center', color: 'teal' }}>
-          Your personal vocabulary
-        </h1>
-        {/* Input for search */}
-        <MyInput
-          value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
-          placeholder="Search..."
-        />
-        {/* Select for sort by... */}
-        <MySelect
-          defaultValue="Sort by..."
-          value={selectedSort}
-          onChange={sortVocabularyWords}
-          options={[
-            { value: 'input', name: 'base language' },
-            { value: 'output', name: 'target language' },
-          ]}
-        />
-      </div>
-      {sortedAndSearchedWords.length
-        ? <VocabularyList words={sortedAndSearchedWords} remove={removeWord} />
-        : <h1 style={{ textAlign: 'center', color: 'red' }}>
-          Words not found. <p style={{ color: 'teal' }}>Add the word to your own vocabulary.</p></h1>
-      }
+      <hr style={{ margin: '15px 0' }} />
+      <h1 style={{ textAlign: 'center', color: 'teal' }}>
+        Your personal vocabulary
+      </h1>
+      <WordFilter
+        filter={filter}
+        setFilter={setFilter}
+      />
+      <VocabularyList words={sortedAndSearchedWords} remove={removeWord} />
 
     </div>
   );

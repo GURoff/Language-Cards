@@ -12,3 +12,22 @@
 .AppAlexandr {
     width: 800px;
 }
+
+/* styles for add/remove words in the vocabulary */
+.word-enter {
+    opacity: 0;
+}
+
+.word-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.word-exit {
+    opacity: 1;
+}
+
+.word-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}

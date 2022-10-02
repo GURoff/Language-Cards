@@ -6,6 +6,7 @@ const MyInput = (props) => {
         <input
             className = {classes.myInput}
             {...props}
+            type='text'
         />
     );
 }

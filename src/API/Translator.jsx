@@ -80,6 +80,14 @@ const TranslatorItem = (props) => {
     setWords(words.filter(p => p.id !== word.id))
   }
 
+  // function successTranslateButton() {
+  //   if(document.getElementById("inputForBaseWord").value==="") { 
+  //            document.getElementById('ButtonForTranslate').disabled = true; 
+  //        } else { 
+  //            document.getElementById('ButtonForTranslate').disabled = false;
+  //        }
+  //    }
+
   return (
     <div>
       {/* Select translator's languages FROM and TO */}
@@ -96,6 +104,8 @@ const TranslatorItem = (props) => {
       <form>
         {/* Input for our base word */}
         <MyInput
+          id='inputForBaseWord'
+          //onKeyUp = {successTranslateButton()}
           placeholder='enter your word'
           value={input}
           onInput={(e) => {
@@ -116,7 +126,7 @@ const TranslatorItem = (props) => {
         />
       </form>
       <div>
-        <MyButton onClick={e => translate()}>Translate</MyButton>
+        <MyButton id='ButtonForTranslate' onClick={e => translate()}>Translate</MyButton>
         <MyButton onClick={addNewWord}>Add to vocabulary</MyButton>
       </div>
       <hr style={{ margin: '15px 0' }} />

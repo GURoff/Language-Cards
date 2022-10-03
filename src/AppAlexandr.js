@@ -6,7 +6,9 @@ function AppAlexandr() {
   
   return (
     <div className="AppAlexandr">
+      
       <h1 style={{textAlign: "center"}}>Homepage</h1>
+      <hr style={{ margin: '10px 0' }} />
       <Translator/>
     </div>
   );

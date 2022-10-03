@@ -105,7 +105,7 @@ const TranslatorItem = (props) => {
         {/* Input for our base word */}
         <MyInput
           id='inputForBaseWord'
-          //onKeyUp = {successTranslateButton()}
+          // onKeyUp = {successTranslateButton}
           placeholder='enter your word'
           value={input}
           onInput={(e) => {

@@ -1,7 +1,11 @@
 import React from 'react';
 import VocabularyItem from './VocabularyItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import Table from 'react-bootstrap/Table';
+import VocabularyTable from '../components/VocabularyTable'
+import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 import classes from '../styles/VocabularyList.module.css';
+
 
 const VocabularyList = ({ words, remove }) => {
 
@@ -11,18 +15,25 @@ const VocabularyList = ({ words, remove }) => {
                 Words not found. <p style={{ color: 'teal' }}>Add the word to your own vocabulary.</p></h1>
         )
     }
+
+    const wordsTable = [
+        {id: '#', name: '', value: ''}];
+
     return (
         <div>
-            {/* <table className={classes.tableHead}>
+            {/* <Table striped bordered hover>
                 <thead>
-                    <tr className={classes.trHead}>
-                        <th>ID</th>
+                    <tr>
+                        <th>#</th>
                         <th>FROM</th>
                         <th>TO</th>
                         <th>1</th>
                     </tr>
                 </thead>
-            </table> */}
+            </Table> */}
+
+    <VocabularyTable data={wordsTable}/>
+
             <TransitionGroup>
                 {words.map((word, index) =>
                     <CSSTransition

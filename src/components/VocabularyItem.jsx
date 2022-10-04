@@ -1,29 +1,26 @@
 import React from 'react';
-import classes from './VocabularyItem.module.css';
+import classes from '../styles/VocabularyItem.module.css';
 
-const VocabularyItem = (props, words) => {
+const VocabularyItem = (props, word) => {
 
     return (
         <div>
             {/* List of user's words */}
+            
+            {/* <table className = {classes.tableContent}>
+                <tbody >
+                <tr className = {classes.trContent}
+                    key={props.number}>
+                    <td className = {classes.tdContent}>{props.number}</td>
+                    <td className = {classes.tdContent}>{props.word.input}</td>
+                    <td className = {classes.tdContent}>{props.word.output}</td>
+                    <td className = {classes.tdContent}><button onClick={() => props.remove(props.word)}>
+                        Remove
+                    </button></td>
+                </tr>
+                </tbody>
+            </table> */}
             <div className={classes.wordRow}>
-                {/* <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>From</th>
-                        <th>To</th>
-                    </tr>
-                    {words.map((props) => {
-                        return (
-                            <tr key={props.number}>
-                                <td>{props.number}</td>
-                                <td>{props.word.input}</td>
-                                <td>{props.word.output}</td>
-                            </tr>
-                        )
-                    })}
-                </table> */}
-
                 <div>
                     <div className={classes.postWord}>
                         {props.number}. {props.word.input} -

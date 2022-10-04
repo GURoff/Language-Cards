@@ -118,7 +118,7 @@ const TranslatorItem = (props) => {
         filter={filter}
         setFilter={setFilter}
       />
-      <VocabularyList words={sortedAndSearchedWords} remove={removeWord} />
+      <VocabularyList words={sortedAndSearchedWords} remove={removeWord}/>
 
     </div>
   );

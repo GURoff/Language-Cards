@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect} from 'react';
 import MyButton from '../components/UI/Buttons/MyButton';
 import MyInput from '../components/UI/Input/MyInput';
 import VocabularyList from '../components/VocabularyList';
 import WordFilter from '../components/WordFilter';
 import classes from './Translator.module.css';
+import {useWords} from '../components/hooks/useWords';
 
 const axios = require('axios').default;
 
@@ -14,7 +15,9 @@ const TranslatorItem = (props) => {
   const [to, setTo] = useState('en');
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
+  const [words, setWords] = useState([]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
+  const sortedAndSearchedWords = useWords(words, filter.sort, filter.query);
 
   //Connect with translator---------------------------------------------------------------------
   const translate = () => {
@@ -44,33 +47,11 @@ const TranslatorItem = (props) => {
           setOptions(res.data);
         })
   }, [])
+
   //Create vocabulary-----------------------------------------------------------------------
-  const [words, setWords] = useState([
-    // { id: 1, ourWord: 'dd', translatedWord: 'hh' },
-    // { id: 2, ourWord: 'ss', translatedWord: 'gg' },
-    // { id: 3, ourWord: 'aa', translatedWord: 'ff' },
-  ])
-
-  //Sorted words in vocabulary for future search
-  const sortedWords = useMemo(() => {
-    if (filter.sort) {
-      return [...words].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
-    }
-    return words;
-  }, [filter.sort, words]);
-
-  //Sorted and searched words from vocabulary
-  const sortedAndSearchedWords = useMemo(() => {
-    return sortedWords.filter(word => word.input.toLowerCase().includes(filter.query)) //is neccecary to add search for output too
-  }, [filter.query, sortedWords]);
-
   //Add new word to our vocabulary from API translator
   const addNewWord = () => {
-    const newWord = {
-      id: Date.now(),
-      input,
-      output
-    }
+    const newWord = { id: Date.now(), input, output }
     setWords([...words, newWord])
     setInput('');
     setOutput('');

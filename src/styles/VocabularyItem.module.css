@@ -1,0 +1,39 @@
+.wordRow {
+    display: flex;
+    height: 40px;
+    width: 500px;
+    padding: 1px;
+    border: 2px solid teal;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.postWord {
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+    color: blue;
+}
+
+.postTranslatedWord {
+    display: flex;
+    padding: 5px;
+    color: blue;
+}
+
+.tableContent {
+    border: 2px solid teal;
+    width: 800px;
+    height: 50px;
+    text-indent: each-line;
+}
+
+.trContent {
+    border-bottom: 1px solid black;
+  }
+
+.tdContent {
+    text-align: center;
+  }

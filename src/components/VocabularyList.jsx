@@ -1,6 +1,7 @@
 import React from 'react';
 import VocabularyItem from './VocabularyItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import classes from '../styles/VocabularyList.module.css';
 
 const VocabularyList = ({ words, remove }) => {
 
@@ -10,9 +11,18 @@ const VocabularyList = ({ words, remove }) => {
                 Words not found. <p style={{ color: 'teal' }}>Add the word to your own vocabulary.</p></h1>
         )
     }
-
     return (
         <div>
+            {/* <table className={classes.tableHead}>
+                <thead>
+                    <tr className={classes.trHead}>
+                        <th>ID</th>
+                        <th>FROM</th>
+                        <th>TO</th>
+                        <th>1</th>
+                    </tr>
+                </thead>
+            </table> */}
             <TransitionGroup>
                 {words.map((word, index) =>
                     <CSSTransition

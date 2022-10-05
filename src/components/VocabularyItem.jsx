@@ -39,8 +39,7 @@ const VocabularyItem = (props, word) => {
                 </tbody>
             </Table> */}
  
-
-            {/* <div className={classes.wordRow}>
+            <div className={classes.wordRow}>
                 <div>
                     <div className={classes.postWord}>
                         {props.number}. {props.word.input} -
@@ -54,7 +53,7 @@ const VocabularyItem = (props, word) => {
                         Remove
                     </button>
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 }

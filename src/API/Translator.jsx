@@ -3,8 +3,9 @@ import MyButton from '../components/UI/Buttons/MyButton';
 import MyInput from '../components/UI/Input/MyInput';
 import VocabularyList from '../components/VocabularyList';
 import WordFilter from '../components/WordFilter';
-import classes from './Translator.module.css';
 import {useWords} from '../components/hooks/useWords';
+
+import classes from './Translator.module.css';
 
 const axios = require('axios').default;
 

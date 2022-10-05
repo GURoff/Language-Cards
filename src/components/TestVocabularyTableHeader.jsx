@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+
 import '../styles/TestVocabularyTable.css';
 import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
  

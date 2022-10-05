@@ -8,3 +8,14 @@
     cursor: pointer;
     margin: 5px;
 }
+
+.MyBtnHide {
+    padding: 3px 15px;
+    color: white;
+    font-size: 15px;
+    background: teal;
+    border: 3px solid grey;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 5px;
+}

@@ -2,10 +2,10 @@ import React from 'react';
 import VocabularyItem from './VocabularyItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Table from 'react-bootstrap/Table';
-import VocabularyTable from '../components/VocabularyTable'
+//import VocabularyTable from '../components/VocabularyTable';
 import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 import classes from '../styles/VocabularyList.module.css';
-
+import TestVocabularyTableHeader from './TestVocabularyTableHeader';
 
 const VocabularyList = ({ words, remove }) => {
 
@@ -16,7 +16,7 @@ const VocabularyList = ({ words, remove }) => {
         )
     }
 
-    const wordsTable = [
+    const wordsTableHeader = [
         {id: '#', name: '', value: ''}];
 
     return (
@@ -32,7 +32,7 @@ const VocabularyList = ({ words, remove }) => {
                 </thead>
             </Table> */}
 
-    <VocabularyTable data={wordsTable}/>
+    
 
             <TransitionGroup>
                 {words.map((word, index) =>
@@ -41,7 +41,8 @@ const VocabularyList = ({ words, remove }) => {
                         timeout={500}
                         classNames="word"
                     >
-                        <VocabularyItem number={index + 1} word={word} remove={remove} />
+                        {/* <VocabularyItem number={index + 1} word={word} remove={remove} /> */}
+                        <TestVocabularyTableHeader number={index + 1} word={word}/>
                     </CSSTransition>
                 )}
             </TransitionGroup>

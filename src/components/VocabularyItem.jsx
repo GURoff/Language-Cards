@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table';
-import classes from '../styles/VocabularyItem.module.css';
 import MyButton from './UI/Buttons/MyButton';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+
+import classes from '../styles/VocabularyItem.module.css';
+import '../styles/TestVocabularyTable.css';
 import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 
 const VocabularyItem = (props, word) => {
-    
+
     return (
         <div>
             {/* List of user's words */}
-
             {/* <table className = {classes.tableContent}>
                 <tbody >
                 <tr className = {classes.trContent}
@@ -25,8 +26,6 @@ const VocabularyItem = (props, word) => {
                 </tbody>
             </table> */}
 
-    
-
             {/* <Table striped >
                 <tbody>
                     <tr>
@@ -39,18 +38,8 @@ const VocabularyItem = (props, word) => {
                     </tr>
                 </tbody>
             </Table> */}
-<BootstrapTable data={props}>
-            
-            <TableHeaderColumn isKey dataField={props.number}>
-              #
-            </TableHeaderColumn>
-            <TableHeaderColumn dataField={props.word.input}>
-              Your language
-            </TableHeaderColumn>
-            <TableHeaderColumn dataField={props.word.output}>
-              Translate
-            </TableHeaderColumn>
-          </BootstrapTable>
+ 
+
             {/* <div className={classes.wordRow}>
                 <div>
                     <div className={classes.postWord}>

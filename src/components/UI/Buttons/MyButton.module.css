@@ -10,16 +10,25 @@
 }
 
 .MyBtnHide {
+    display: flex;
     padding: 8px 15px;
-    color: white;
+    margin: 5px;
     font-size: 15px;
-    background: teal;
     border: 3px solid black;
     border-radius: 15px;
+    color: white;
+    background: teal;
     cursor: pointer;
-    /* margin: 5px; */
+}
+
+.MyBtnNav {
     display: flex;
-    position:absolute;
-    top: 343px;
-    left: 410px;
+    padding: 8px 1px;
+    margin: 3px;
+    font-size: 15px;
+    border: 3px solid black;
+    border-radius: 15px;
+    color: white;
+    background: teal;
+    cursor: pointer;
 }

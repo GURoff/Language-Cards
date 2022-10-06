@@ -92,7 +92,7 @@ const TranslatorItem = (props) => {
           value={input}
           onInput={(e) => {
             if (/[0-9]/.test(e.target.value)) {
-              alert('You cannot enter numbers, space and turn on CapsLock in this field. Click OK and try again')
+              alert('You cannot enter numbers in this field. Click OK and try again')
               setInput('');
             } else {
               setInput(e.target.value);

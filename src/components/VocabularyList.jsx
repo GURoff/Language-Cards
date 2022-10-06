@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import VocabularyItem from './VocabularyItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import Table from 'react-bootstrap/Table';
+// import Table from 'react-bootstrap/Table';
 //import VocabularyTable from '../components/VocabularyTable';
-import TestVocabularyTableHeader from './TestVocabularyTableHeader';
-import HideOfButtons from './UI/Hide/HideOfButtons';
+// import TestVocabularyTableHeader from './TestVocabularyTableHeader';
+import MyButtonHide from '../components/UI/Buttons/MyButtonHide';
 
 import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
-import classes from '../styles/VocabularyList.module.css';
+// import classes from '../styles/VocabularyList.module.css';
 
 const VocabularyList = ({ words, remove }) => {
+    const [showSettings, setShowSettings] = useState(false);
 
     if (!words.length) {
         return (
@@ -19,10 +20,14 @@ const VocabularyList = ({ words, remove }) => {
     }
 
     const wordsTableHeader = [
-        {id: '#', name: '', value: ''}];
+        { id: '#', name: '', value: '' }];
 
     return (
         <div>
+            <MyButtonHide onClick={() => setShowSettings(!showSettings)}>
+                {showSettings ? 'Done' : 'Edit'}
+            </MyButtonHide>
+
             {/* <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -41,12 +46,12 @@ const VocabularyList = ({ words, remove }) => {
                         timeout={500}
                         classNames="word"
                     >
-                        <VocabularyItem number={index + 1} word={word} remove={remove} />
+                        <VocabularyItem number={index + 1} word={word} remove={remove} showSettings={showSettings} />
                         {/* <TestVocabularyTableHeader number={index + 1} word={word}/> */}
                     </CSSTransition>
                 )}
             </TransitionGroup>
-           
+
         </div>
     );
 }

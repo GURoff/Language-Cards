@@ -10,12 +10,16 @@
 }
 
 .MyBtnHide {
-    padding: 3px 15px;
+    padding: 8px 15px;
     color: white;
     font-size: 15px;
     background: teal;
-    border: 3px solid grey;
+    border: 3px solid black;
     border-radius: 15px;
     cursor: pointer;
-    margin: 5px;
+    /* margin: 5px; */
+    display: flex;
+    position:absolute;
+    top: 343px;
+    left: 410px;
 }

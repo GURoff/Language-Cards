@@ -1,14 +1,26 @@
 import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Navbar from './components/UI/Navbar/Navbar';
+import HomePage from './Pages/HomePage';
+import Translator from "./Pages/API/Translator";
+import About from './Pages/About';
+
 import './styles/App.css';
-import Translator from "./API/Translator";
 
 function AppAlexandr() {
 
   return (
     <div className="AppAlexandr">
-      <h1 style={{ textAlign: "center" }}>Homepage</h1>
-      <hr style={{ margin: '10px 0' }} />
-      <Translator/>
+      
+      <BrowserRouter>
+     <Navbar/>
+        <Routes>
+          <Route path="/home" element={<HomePage/>}/>
+          <Route path="/vocabulary" element={<Translator/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path = "*" element = {<Navigate to="/home" replace/> }/>         
+      </Routes> 
+    </BrowserRouter>
     </div>
   );
 }

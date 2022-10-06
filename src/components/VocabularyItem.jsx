@@ -3,18 +3,15 @@ import ReactDOM from 'react-dom';
 import Table from 'react-bootstrap/Table';
 import MyButton from './UI/Buttons/MyButton';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import HideOfButtons from './UI/Hide/HideOfButtons';
 
 import classes from '../styles/VocabularyItem.module.css';
 import '../styles/TestVocabularyTable.css';
 import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 
-const VocabularyItem = (props, word) => {
-    // console.log(document.getElementById('MyButtonForRemoving'))
 
+const VocabularyItem = (props) => {
     return (
         <div>
-         
             {/* List of user's words */}
             {/* <table className = {classes.tableContent}>
                 <tbody >
@@ -42,7 +39,7 @@ const VocabularyItem = (props, word) => {
                     </tr>
                 </tbody>
             </Table> */}
- <HideOfButtons/>
+
             <div className={classes.wordRow}>
                 <div>
                     <div className={classes.postWord}>
@@ -52,13 +49,15 @@ const VocabularyItem = (props, word) => {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <MyButton id="RemoveButton" visibility = {'hidden'} onClick={() => props.remove(props.word)}>
-                        Remove
-                    </MyButton>
-                </div>
+                {props.showSettings &&      //show or hide remove button
+                    <div>
+                        <MyButton id="RemoveButton" onClick={() => props.remove(props.word)}>
+                            Remove
+                        </MyButton>
+                    </div>
+                }
             </div>
-           
+
         </div>
     );
 }

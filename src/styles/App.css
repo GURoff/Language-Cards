@@ -6,11 +6,25 @@
 
 #root {
     display: flex;
-    justify-content: center;
+    /* flex-direction: column; */
+    align-items: center;
 }
 
 .AppAlexandr {
     width: 800px;
+}
+
+.navbar {
+    height: 50px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: whitesmoke;
+}
+
+.navbar__links {
+    margin-left: auto;
 }
 
 /* styles for add/remove words in the vocabulary */

@@ -12,21 +12,21 @@ function AppAlexandr() {
 
   return (
     <div className="AppAlexandr">
-      
+
       <BrowserRouter>
-     <Navbar/>
+        <Navbar />
         <Routes>
           {/* {routes.map(route => 
             <Route path = {route.path}
             element = {route.element}
             exact = {route.exact}/>
           )} */}
-          <Route path="/home" element={<HomePage/>}/>
-          <Route path="/vocabulary" element={<Translator/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path = "*" element = {<Navigate to="/home" replace/> }/>         
-      </Routes> 
-    </BrowserRouter>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/vocabulary" element={<Translator />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Navigate to="/home" replace />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

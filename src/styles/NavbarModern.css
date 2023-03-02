@@ -39,9 +39,9 @@ nav.menu:before {
     box-shadow: 1px 1px 2px 0px #fff;
 }
 
-input {
+/* input {
     display: none;
-}
+} */
 
 label {
     text-decoration: none;

@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import VocabularyItem from './VocabularyItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import MyButtonHide from '../components/UI/Buttons/MyButtonHide';
 
-const VocabularyList = ({ words, remove }) => {
+const VocabularyList = ({ words, remove, setWords }) => {
     const [showSettings, setShowSettings] = useState(false);
+
+    //Saving words (data) in local storage-------------------------
+    useEffect(() => {
+        const savedWords = JSON.parse(localStorage.getItem('saved words'));
+        if (savedWords) {
+            setWords(savedWords);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('saved words', JSON.stringify(words));
+    }, [words]);
+
+    //------------------
 
     if (!words.length) {
         return (
@@ -13,8 +27,8 @@ const VocabularyList = ({ words, remove }) => {
         )
     }
 
-    const wordsTableHeader = [
-        { id: '#', name: '', value: '' }];
+    // const wordsTableHeader = [
+    //     { id: '#', name: '', value: '' }];
 
     return (
         <div>
@@ -32,7 +46,6 @@ const VocabularyList = ({ words, remove }) => {
                     </CSSTransition>
                 )}
             </TransitionGroup>
-
         </div>
     );
 }

@@ -1,29 +1,14 @@
-import React, { useState } from 'react';
-import './Card.css';
+import React from 'react';
+import Card from '../components/Card';
+import DeckOfCards from '../components/DeckOfCards';
 
-const Card = (props) => {
-    const [isFlipped, setIsFlipped] = useState(false);
-
-    const handleClick = () => {
-        setIsFlipped(!isFlipped);
-    };
-
+const TestPage = () => {
     return (
-        <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={handleClick}>
-            <div className="front">
-                <div className="textOnCard">
-                    <h2>Front</h2>
-                    <p>RU</p>
-                </div>
-            </div>
-            <div className="back">
-                <div className="textOnCard">
-                    <h2>Back</h2>
-                    <p>Eng</p>
-                </div>
-            </div>
+        <div>
+            <Card />
+            {/* <DeckOfCards /> */}
         </div>
     );
 };
 
-export default Card;
+export default TestPage;

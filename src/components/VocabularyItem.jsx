@@ -1,8 +1,8 @@
-import React, { Component, useState } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import MyButton from './UI/Buttons/MyButton';
 import classes from '../styles/VocabularyItem.module.css';
 import '../styles/TestVocabularyTable.css';
+import Card from './Card';
 
 const VocabularyItem = (props) => {
     return (
@@ -23,6 +23,9 @@ const VocabularyItem = (props) => {
                         </MyButton>
                     </div>
                 }
+            </div>
+            <div>
+                <Card frontContent={props.word.output} backContent={props.word.input} />
             </div>
         </div>
     );

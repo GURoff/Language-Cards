@@ -4,9 +4,6 @@ import MyInput from '../../components/UI/Input/MyInput';
 import VocabularyList from '../../components/VocabularyList';
 import WordFilter from '../../components/WordFilter';
 import { useWords } from '../../components/hooks/useWords';
-
-
-
 import classes from './Translator.module.css';
 
 const axios = require('axios').default;
@@ -64,14 +61,6 @@ const TranslatorItem = (props) => {
     setWords(words.filter(p => p.id !== word.id))
   }
 
-  // function successTranslateButton() {
-  //   if(document.getElementById("inputForBaseWord").value==="") { 
-  //            document.getElementById('ButtonForTranslate').disabled = true; 
-  //        } else { 
-  //            document.getElementById('ButtonForTranslate').disabled = false;
-  //        }
-  //    }
-
   return (
     <div>
       <h1 style={{ textAlign: 'center', color: 'teal' }}>
@@ -123,8 +112,7 @@ const TranslatorItem = (props) => {
         filter={filter}
         setFilter={setFilter}
       />
-      <VocabularyList words={sortedAndSearchedWords} remove={removeWord} />
-
+      <VocabularyList words={sortedAndSearchedWords} remove={removeWord} setWords={setWords} />
     </div>
   );
 };

@@ -51,8 +51,8 @@ const TranslatorItem = (props) => {
   //Create vocabulary-----------------------------------------------------------------------
   //Add new word to our vocabulary from API translator
   const addNewWord = () => {
-    const newWord = { id: Date.now(), input, output }
-    setWords([...words, newWord])
+    const newWord = { id: Date.now(), input, output };
+    setWords([...words, newWord]);
     setInput('');
     setOutput('');
   }

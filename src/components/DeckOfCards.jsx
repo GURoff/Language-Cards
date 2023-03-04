@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/DeckOfCards.css';
+import { backSide, frontSide } from './VocabularyItem';
 
 const Deck = ({ cards }) => {
     const [deck, setDeck] = useState(cards);
@@ -30,10 +31,10 @@ const Deck = ({ cards }) => {
                     style={{ zIndex: deck.length - index }}
                 >
                     <div className="card-face card-front">
-                        {card.frontContent}
+                        {card.frontSide}
                     </div>
                     <div className="card-face card-back">
-                        {card.backContent}
+                        {card.backSide}
                     </div>
                 </div>
             ))}

@@ -5,7 +5,6 @@ import MyButtonHide from '../components/UI/Buttons/MyButtonHide';
 
 const VocabularyList = ({ words, remove, setWords }) => {
     const [showSettings, setShowSettings] = useState(false);
-
     //Saving words (data) in local storage-------------------------
     useEffect(() => {
         const savedWords = JSON.parse(localStorage.getItem('saved words'));
@@ -17,7 +16,6 @@ const VocabularyList = ({ words, remove, setWords }) => {
     useEffect(() => {
         localStorage.setItem('saved words', JSON.stringify(words));
     }, [words]);
-
     //------------------
 
     if (!words.length) {

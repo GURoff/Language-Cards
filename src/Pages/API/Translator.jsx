@@ -5,6 +5,8 @@ import VocabularyList from '../../components/VocabularyList';
 import WordFilter from '../../components/WordFilter';
 import { useWords } from '../../components/hooks/useWords';
 import classes from './Translator.module.css';
+import Card from '../../components/Cards';
+import TestPage from '../TestPage';
 
 const axios = require('axios').default;
 
@@ -56,6 +58,7 @@ const TranslatorItem = (props) => {
     setInput('');
     setOutput('');
   }
+
   //Function for removing word from our vocabulary 
   const removeWord = (word) => {
     setWords(words.filter(p => p.id !== word.id))

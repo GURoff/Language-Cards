@@ -9,6 +9,7 @@ const TestPage = () => {
 
     return (
         <div>
+            <Cards />
             {/* <Cards frontContent={frontContent}
                 backContent={backContent} /> */}
             {/* <DeckOfCards /> */}

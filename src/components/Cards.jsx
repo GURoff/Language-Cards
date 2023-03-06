@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Cards.css';
+import store from '../store/store';
 
 // { frontContent, backContent }
 const Cards = (props) => {
     const [isFlipped, setIsFlipped] = useState(false);
+    const [newWord, setNewWord] = useState(null);
+
+    useEffect(() => {
+        store.subscribe(() => {
+            setNewWord(store.getState().newWord);
+        });
+    }, []);
+    console.log(newWord);
 
     const handleClick = () => {
         setIsFlipped(!isFlipped);

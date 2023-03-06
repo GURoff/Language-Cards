@@ -23,8 +23,8 @@ const NavbarModern = () => {
             <div className='navbar__links'>
                 <Link to='/home'>Home </Link>
                 <Link to='/vocabulary'>Your vocabulary </Link>
-                <Link to='/profile'>Your profile </Link>
                 <Link to='/testpage'>Test Page </Link>
+                <Link to='/profile'>Your profile </Link>
                 <Link to='/about'>About </Link>
             </div>
         </div>

@@ -3,19 +3,13 @@ import VocabularyItem from './VocabularyItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import MyButtonHide from '../components/UI/Buttons/MyButtonHide';
 
-const VocabularyList = ({ words, remove, setWords }) => {
+const VocabularyList = ({ words, remove, setWords, from, to }) => {
     const [showSettings, setShowSettings] = useState(false);
     //Saving words (data) in local storage-------------------------
     useEffect(() => {
         const savedWords = JSON.parse(localStorage.getItem('saved words'));
-        if (savedWords) {
-            setWords(savedWords);
-        }
+        setWords(savedWords);
     }, []);
-
-    useEffect(() => {
-        localStorage.setItem('saved words', JSON.stringify(words));
-    }, [words]);
     //------------------
 
     if (!words.length) {
@@ -24,9 +18,6 @@ const VocabularyList = ({ words, remove, setWords }) => {
                 Words not found. <p style={{ color: 'teal' }}>Add the word to your own vocabulary.</p></h1>
         )
     }
-
-    // const wordsTableHeader = [
-    //     { id: '#', name: '', value: '' }];
 
     return (
         <div>
@@ -40,7 +31,7 @@ const VocabularyList = ({ words, remove, setWords }) => {
                         timeout={500}
                         classNames="word"
                     >
-                        <VocabularyItem number={index + 1} word={word} remove={remove} showSettings={showSettings} />
+                        <VocabularyItem number={index + 1} word={word} showSettings={showSettings} />
                     </CSSTransition>
                 )}
             </TransitionGroup>

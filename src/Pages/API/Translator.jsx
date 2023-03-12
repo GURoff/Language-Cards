@@ -5,10 +5,6 @@ import VocabularyList from '../../components/VocabularyList';
 import WordFilter from '../../components/WordFilter';
 import { useWords } from '../../components/hooks/useWords';
 import classes from './Translator.module.css';
-import Card from '../../components/Cards';
-import TestPage from '../TestPage';
-import { setData } from './../../state/action-reators/actions';
-import store from '../../store/store';
 
 const axios = require('axios').default;
 
@@ -55,11 +51,12 @@ const TranslatorItem = (props) => {
   //Create vocabulary-----------------------------------------------------------------------
   //Add new word to our vocabulary from API translator
   const addNewWord = () => {
-    const newWord = { id: Date.now(), input, output };
+    const newWord = { id: Date.now(), input, output, from, to };
     setWords([...words, newWord]);
+    console.log(words);
+    localStorage.setItem('saved words', JSON.stringify(words));
     setInput('');
     setOutput('');
-    store.dispatch(setData(newWord)); //send data to store
   }
 
   //Function for removing word from our vocabulary 
@@ -118,7 +115,7 @@ const TranslatorItem = (props) => {
         filter={filter}
         setFilter={setFilter}
       />
-      <VocabularyList words={sortedAndSearchedWords} remove={removeWord} setWords={setWords} />
+      <VocabularyList words={sortedAndSearchedWords} setWords={setWords} to={to} from={from} />
     </div>
   );
 };

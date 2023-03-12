@@ -12,7 +12,6 @@ const Cards = (props) => {
             setNewWord(store.getState().newWord);
         });
     }, []);
-    console.log(newWord);
 
     const handleClick = () => {
         setIsFlipped(!isFlipped);
@@ -23,16 +22,18 @@ const Cards = (props) => {
             <div>
 
             </div>
-            <div className="front">
-                <div className="textOnCard">
-                    <h2>front</h2>
-                    <p>RU</p>
-                </div>
-            </div>
             <div className="back">
                 <div className="textOnCard">
-                    <h2>back</h2>
-                    <p>Eng</p>
+                    <h2>{props.savedWords.input}</h2>
+                    <p>{props.savedWords.from}</p>
+                </div>
+
+            </div>
+
+            <div className="front">
+                <div className="textOnCard">
+                    <h2>{props.savedWords.output}</h2>
+                    <p>{props.savedWords.to}</p>
                 </div>
             </div>
 
